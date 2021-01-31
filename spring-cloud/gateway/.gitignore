@@ -1,3 +1,4 @@
+HELP.md
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -16,7 +17,7 @@
 *.iws
 *.iml
 *.ipr
-out
+/out/
 bin
 
 ### NetBeans ###
@@ -25,5 +26,3 @@ bin
 /dist/
 /nbdist/
 /.nb-gradle/
-.DS_Store
-ML-labb
