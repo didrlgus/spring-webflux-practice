@@ -29,8 +29,8 @@ public class PersistenceTests {
     private ReviewEntity savedEntity;
 
     @Before
-    public void setupDb() {
-        repository.deleteAll();
+   	public void setupDb() {
+   		repository.deleteAll();
 
         ReviewEntity entity = new ReviewEntity(1, 2, "a", "s", "c");
         savedEntity = repository.save(entity);
@@ -40,7 +40,7 @@ public class PersistenceTests {
 
 
     @Test
-    public void create() {
+   	public void create() {
 
         ReviewEntity newEntity = new ReviewEntity(1, 3, "a", "s", "c");
         repository.save(newEntity);
@@ -52,7 +52,7 @@ public class PersistenceTests {
     }
 
     @Test
-    public void update() {
+   	public void update() {
         savedEntity.setAuthor("a2");
         repository.save(savedEntity);
 
@@ -62,13 +62,13 @@ public class PersistenceTests {
     }
 
     @Test
-    public void delete() {
+   	public void delete() {
         repository.delete(savedEntity);
         assertFalse(repository.existsById(savedEntity.getId()));
     }
 
     @Test
-    public void getByProductId() {
+   	public void getByProductId() {
         List<ReviewEntity> entityList = repository.findByProductId(savedEntity.getProductId());
 
         assertThat(entityList, hasSize(1));
@@ -76,13 +76,13 @@ public class PersistenceTests {
     }
 
     @Test(expected = DataIntegrityViolationException.class)
-    public void duplicateError() {
+   	public void duplicateError() {
         ReviewEntity entity = new ReviewEntity(1, 2, "a", "s", "c");
         repository.save(entity);
     }
 
     @Test
-    public void optimisticLockError() {
+   	public void optimisticLockError() {
 
         // Store the saved entity in two separate entity objects
         ReviewEntity entity1 = repository.findById(savedEntity.getId()).get();

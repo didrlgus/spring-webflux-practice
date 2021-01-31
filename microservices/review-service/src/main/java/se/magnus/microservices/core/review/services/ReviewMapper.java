@@ -12,13 +12,13 @@ import java.util.List;
 public interface ReviewMapper {
 
     @Mappings({
-            @Mapping(target = "serviceAddress", ignore = true)
+        @Mapping(target = "serviceAddress", ignore = true)
     })
     Review entityToApi(ReviewEntity entity);
 
     @Mappings({
-            @Mapping(target = "id", ignore = true),
-            @Mapping(target = "version", ignore = true)
+        @Mapping(target = "id", ignore = true),
+        @Mapping(target = "version", ignore = true)
     })
     ReviewEntity apiToEntity(Review api);
 
